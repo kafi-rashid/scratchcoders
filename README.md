@@ -1,2 +1,0 @@
-# scratchcoders
-Website for ScratchCoders.

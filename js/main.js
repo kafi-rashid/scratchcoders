@@ -56,6 +56,23 @@ jQuery(document).ready(function() {
 	// $('.message-container textarea').blur(function() {
 	// 	$('.message-container input[type="text"]').slideUp('fast');
 	// });
+
+	// CENTER ELEMENTS
+	$('.hc-content').each(function() {
+		$(this).css({ 'position': 'absolute', 'width': '100%', 'top': '50%', 'margin-top': -($(this).height() / 2) });
+	});
+
+	// PORTFOLIO VIEWER
+	$('.grid-item').click(function() {
+		let imgUrl = $(this).find('img').attr('src');
+		let linkTitle = $(this).find('.link-title').text();
+		$('#portfolio-image').find('img').attr('src', imgUrl);
+		$('#portfolio-content').find('.portfolio-title').text(linkTitle);
+		$('#portfolio-viewer').fadeIn('slow');
+	});
+	$('#portfolio-close').click(function() {
+		$('#portfolio-viewer').fadeOut('slow');
+	});
 });
 
 $(window).on('load', function() {

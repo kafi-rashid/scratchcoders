@@ -798,30 +798,40 @@ html, body {
 	padding-top: 5px;
 	font-weight: 500;
 }
-
-.search-container * {
+.message-container * {
 	vertical-align: top;
 }
-.search-container input[type='text'] {
-	width: calc(100% - 120px);
+.message-container input[type='text'], .message-container textarea {
+	width: 100%;
 	height: 35px;
-	padding-left: 10px;
 	padding-right: 10px;
+	padding-left: 10px;
 	font-size: 13px;
 	outline: none;
 	margin: 0;
-	font-style: italic;
 	border: none;
+	margin-bottom: 5px;
+	background-color: #fff;
+	opacity: 0.9;
+	font-weight: 300;
 }
-.search-container button {
-	width: 120px;
+.message-container input[type='text'] {
+	display: none;
+}
+.message-container textarea {
+	padding: 10px;
+	min-height: 80px;
+	resize: none;
+}
+.message-container button {
+	width: 100%;
 	height: 35px;
 	font-size: 12px;
 	outline: none;
 	text-transform: uppercase;
 	margin: 0;
 	border-radius: 0;
-	background-color: #95e1d3;
+	background-color: #636e72;
 	border: none;
 	outline: none;
 	color: white;
@@ -903,7 +913,6 @@ html, body {
 	}
 	#myNavbar li a:hover {
 		color: #fff;
-		background-color: #fce38a;
 		width: auto;
 	}
 	.top-header .navbar-nav li a:hover, .top-header .navbar-nav .active a, .top-header .navbar-nav .active a:focus {

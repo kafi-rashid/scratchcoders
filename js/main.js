@@ -1,3 +1,7 @@
+function auto_grow(element) {
+    element.style.height = "5px";
+    element.style.height = (element.scrollHeight)+"px";
+}
 jQuery(document).ready(function() {
 
 	// NAVBAR
@@ -44,6 +48,14 @@ jQuery(document).ready(function() {
 		}, 800);
 		return false;
 	});
+
+	// SEARCH CONTAINER
+	$('.message-container textarea').focus(function() {
+		$('.message-container input[type="text"]').slideDown('fast');
+	});
+	// $('.message-container textarea').blur(function() {
+	// 	$('.message-container input[type="text"]').slideUp('fast');
+	// });
 });
 
 $(window).on('load', function() {

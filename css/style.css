@@ -361,7 +361,7 @@ html, body {
 	left: calc(15% + 10px);
 	z-index: 99;
 	background-color: rgba(255, 255, 255, 1);
-	/*display: n*/one;
+	display: none;
 }
 .portfolio-inner {
 	position: relative;

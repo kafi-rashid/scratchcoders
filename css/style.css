@@ -1131,7 +1131,7 @@ html, body {
 		height: 100vh;
 		padding-left: 40px;
 	}
-	.banner-content .banner-slogan {
+	.banner-content .banner-slogan, .banner-content .banner-slogan span {
 		font-size: 20px;
 	}
 	.showcase-button-group .showcase-button {

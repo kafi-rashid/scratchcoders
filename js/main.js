@@ -63,20 +63,47 @@ jQuery(document).ready(function() {
 	});
 
 	// PORTFOLIO VIEWER
-	$('.grid-item').click(function() {
-		let imgUrl = $(this).find('img').attr('src');
-		let linkTitle = $(this).find('.link-title').text();
-		$('#portfolio-image').find('img').attr('src', imgUrl);
-		$('#portfolio-content').find('.portfolio-title').text(linkTitle);
-		$('#portfolio-viewer').fadeIn('slow');
+	var viewingPortfolio = false;
+	$('#portfolio-viewer').hover(function() {
+		viewingPortfolio = true;
+	}, function() {
+		viewingPortfolio = false;
 	});
-	$('#portfolio-close').click(function() {
-		$('#portfolio-viewer').fadeOut('slow');
+	$('.grid-item').click(function() {
+		viewingPortfolio = true;
+		$('#portfolio-image').find('img').attr('src', $(this).find('img').attr('src'));
+		$('#portfolio-content').find('.portfolio-title').text($(this).find('.link-title').text());
+		$('#portfolio-content').find('.portfolio-link a').attr('href', $(this).data('link'));
+		$('#portfolio-content').find('.portfolio-framework span').text($(this).data('framework'));
+		$('#dark-foreground, #portfolio-viewer').fadeIn('fast');
+	});
+	$('#portfolio-close, #portfolio-close-alt').click(function() {
+		$('#dark-foreground, #portfolio-viewer').fadeOut('fast');
+		viewingPortfolio = false;
+	});
+	$(document).click(function() {
+		if (!viewingPortfolio) { 
+			$('#dark-foreground, #portfolio-viewer').fadeOut('fast');
+			viewingPortfolio = false;
+		}
 	});
 });
 
 $(window).on('load', function() {
 	(new WOW).init();
+	var typeWrite = document.getElementById('banner-type');
+	var typewriter = new Typewriter(typeWrite, {
+	    loop: true
+	});
+	typewriter.typeString('web')
+    .pauseFor(2500)
+    .deleteAll()
+    .typeString('mobile')
+    .pauseFor(1500)
+    .deleteAll()
+    .typeString('iot')
+    .pauseFor(1500)
+    .start();
 });
 $(window).on('load resize', function() {
 	$('.inner-right').each(function() {

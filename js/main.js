@@ -3,7 +3,6 @@ function auto_grow(element) {
     element.style.height = (element.scrollHeight)+"px";
 }
 jQuery(document).ready(function() {
-
 	// NAVBAR
 	$('.top-header .navbar-nav a').on('click', function () {
 		$('.top-header .navbar-nav').find('li.active').removeClass('active');
@@ -24,21 +23,6 @@ jQuery(document).ready(function() {
 	$(".banner-title").fitText(1.2, { minFontSize: '50px', maxFontSize: '90px' });
 	$(".we-do-child .material-icons").fitText(1.2, { minFontSize: '50px', maxFontSize: '6vw' });
 
-	// ISOTOPES
-	var $grid = $('.grid').isotope({
-	});
-	$('#filters').on( 'click', 'button', function() {
-		var filterValue = $( this ).attr('data-filter');
-		$grid.isotope({ filter: filterValue });
-	});
-	$('.showcase-button-group').each( function( i, buttonGroup ) {
-		var $buttonGroup = $( buttonGroup );
-		$buttonGroup.on( 'click', 'button', function() {
-			$buttonGroup.find('.is-checked').removeClass('is-checked');
-			$(this).addClass('is-checked');
-		});
-	});
-
 	// BACK TO TOP
 	$('.back-to-top, .navbar-brand').click(function () {
 		$('#myNavbar li').removeClass('active');
@@ -53,9 +37,6 @@ jQuery(document).ready(function() {
 	$('.message-container textarea').focus(function() {
 		$('.message-container input[type="text"]').slideDown('fast');
 	});
-	// $('.message-container textarea').blur(function() {
-	// 	$('.message-container input[type="text"]').slideUp('fast');
-	// });
 
 	// CENTER ELEMENTS
 	$('.hc-content').each(function() {
@@ -90,7 +71,25 @@ jQuery(document).ready(function() {
 });
 
 $(window).on('load', function() {
+	// ISOTOPES
+	var $grid = $('.grid').isotope({
+	});
+	$('#filters').on( 'click', 'button', function() {
+		var filterValue = $( this ).attr('data-filter');
+		$grid.isotope({ filter: filterValue });
+	});
+	$('.showcase-button-group').each( function( i, buttonGroup ) {
+		var $buttonGroup = $( buttonGroup );
+		$buttonGroup.on( 'click', 'button', function() {
+			$buttonGroup.find('.is-checked').removeClass('is-checked');
+			$(this).addClass('is-checked');
+		});
+	});
+
+	// WOW INIT
 	(new WOW).init();
+
+	// TYPEWRITER
 	var typeWrite = document.getElementById('banner-type');
 	var typewriter = new Typewriter(typeWrite, {
 	    loop: true
@@ -105,6 +104,7 @@ $(window).on('load', function() {
     .pauseFor(1500)
     .start();
 });
+
 $(window).on('load resize', function() {
 	$('.inner-right').each(function() {
 		$(this).height($(this).parent().find('.inner-left').outerHeight());

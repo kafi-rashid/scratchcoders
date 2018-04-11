@@ -20,7 +20,7 @@ jQuery(document).ready(function() {
 	});
 
 	// FITTEXT
-	$(".banner-title").fitText(1.2, { minFontSize: '50px', maxFontSize: '90px' });
+	$(".banner-title").fitText(1.2, { minFontSize: '40px', maxFontSize: '100px' });
 	$(".we-do-child .material-icons").fitText(1.2, { minFontSize: '50px', maxFontSize: '6vw' });
 
 	// BACK TO TOP
@@ -97,10 +97,10 @@ $(window).on('load', function() {
 	typewriter.typeString('web')
     .pauseFor(2500)
     .deleteAll()
-    .typeString('mobile')
+    .typeString('web, mobile')
     .pauseFor(1500)
     .deleteAll()
-    .typeString('iot')
+    .typeString('web, mobile & iot')
     .pauseFor(1500)
     .start();
 });

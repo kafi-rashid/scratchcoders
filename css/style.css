@@ -1169,6 +1169,9 @@ body::-webkit-scrollbar-thumb {
 	.copyright {
 		margin-top: 20px;
 	}
+	#our-works-ext {
+		padding-top: 0;
+	}
 }
 @media (min-width: 1440px) {
 	/*#team:after {

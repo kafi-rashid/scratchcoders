@@ -2,6 +2,14 @@ function auto_grow(element) {
     element.style.height = "5px";
     element.style.height = (element.scrollHeight)+"px";
 }
+function disableScrolling() {
+    var x = window.scrollX;
+    var y = window.scrollY;
+    window.onscroll = function(){window.scrollTo(x, y);};
+}
+function enableScrolling() {
+    window.onscroll = function(){};
+}
 jQuery(document).ready(function() {
 	// NAVBAR
 	$('.top-header .navbar-nav a').on('click', function () {
@@ -57,15 +65,18 @@ jQuery(document).ready(function() {
 		$('#portfolio-content').find('.portfolio-link a').attr('href', $(this).data('link'));
 		$('#portfolio-content').find('.portfolio-framework span').text($(this).data('framework'));
 		$('#dark-foreground, #portfolio-viewer').fadeIn('fast');
+		disableScrolling();
 	});
 	$('#portfolio-close, #portfolio-close-alt').click(function() {
 		$('#dark-foreground, #portfolio-viewer').fadeOut('fast');
 		viewingPortfolio = false;
+		enableScrolling();
 	});
 	$(document).click(function() {
 		if (!viewingPortfolio) { 
 			$('#dark-foreground, #portfolio-viewer').fadeOut('fast');
 			viewingPortfolio = false;
+			enableScrolling();
 		}
 	});
 });
